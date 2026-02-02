@@ -30,4 +30,24 @@ def is_allocation_feasible(
 
     """
     # TODO: Implement this function
+
+    for request in requests:
+        for resource, amount in request.items():
+
+            # Resource must exist
+            if resource not in resources:
+                return False
+
+            # Amounts must be non-negative
+            if amount < 0:
+                return False
+
+            usage[resource] += amount
+
+            # Cannot exceed capacity
+            if usage[resource] > resources[resource]:
+                return False                
+
+    return True
+
     raise NotImplementedError("suggest_slots function has not been implemented yet")

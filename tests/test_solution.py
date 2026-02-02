@@ -46,3 +46,34 @@ def test_non_dict_request_raises():
         is_allocation_feasible(resources, requests)
 
 """TODO: Add at least 5 additional test cases to test your implementation."""
+def test_resource_feasible_equality():
+    # Resources and requests are equal in capacity
+    # Constraint: total demand <= capacity
+    # Reason: Check edge case with equality
+    resources = {'cpu': 5}
+    requests = [{'cpu': 5}]  
+    assert is_allocation_feasible(resources, requests) is True
+
+    def test_negative_resource_capacity():
+    # System must return false when a negative capacity is given
+    # Constraint: capacity !< 0
+    # Reason: Check negative value handling
+    resources = {'cpu': 5}
+    requests = [{'cpu': -5}, {'cpu': 10}]  
+    assert is_allocation_feasible(resources, requests) is False
+
+    def test_zero_request_handling():
+    # Resources and requests can be a zero value
+    # Constraint: capacity >=0
+    # Reason: Check edge case with 0 handling
+    resources = {'cpu': 5}
+    requests = [{'cpu': 0}, {'cpu' : 5}]  
+    assert is_allocation_feasible(resources, requests) is True
+
+    def test_zero_resource_handling():
+    # Resources and requests can handle zero values
+    # Constraint: capacity >= 0
+    # Reason: Check edge case with zero handling
+    resources = {'cpu': 5, 'vram' : 0}
+    requests = [{'cpu' : 5}]  
+    assert is_allocation_feasible(resources, requests) is True
