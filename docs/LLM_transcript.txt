@@ -1,10 +1,105 @@
-## Student Name:
-## Student ID: 
 
-Prompt 1: "Copy paste your question"
-LLM Response 1: "Copy paste LLMs response"
 
---------------------------------------------------
-Prompt 2: "Copy paste your question"
-LLM Response 2: "Copy paste LLMs response"
---------------------------------------------------
+Prompt 1: "what is an invariant in the context of requirements engineering?"
+LLM Response 1: "
+
+In requirements engineering, an invariant is a condition or property that must always hold true for a system, regardless of state, time, or execution path.
+
+Think of it as a non-negotiable rule of the system.
+
+Plain-English definition
+
+An invariant is a constraint that the system must never violate.
+
+If the invariant is ever false, the system is incorrect, no matter what feature is being used.
+
+Why invariants matter in requirements engineering
+
+Invariants help you:
+
+Precisely define system correctness
+
+Catch contradictions or missing requirements early
+
+Serve as a bridge between requirements, design, and verification
+
+Provide a basis for formal verification and testing
+
+They’re especially important in safety-critical, financial, or resource-constrained systems.
+
+Examples
+1️⃣ Resource management
+
+The total allocated memory shall never exceed available memory.
+
+This invariant must hold:
+
+Before
+
+During
+
+After any operation
+
+2️⃣ Banking system
+
+An account balance shall never be negative.
+
+Even during transfers, failures, or rollbacks.
+
+3️⃣ Authentication system
+
+A user must be authenticated before accessing protected resources.
+
+No exceptions, no “temporary” violations.
+
+4️⃣ Scheduling / allocation (ties nicely to your earlier lab 😉)
+
+For each resource r, the sum of all granted requests for r ≤ capacity(r).
+
+That’s a textbook invariant.
+
+Invariants vs other requirements
+Concept	Description
+Invariant	Must always hold
+Functional requirement	Describes behavior or features
+Precondition	Must hold before an operation
+Postcondition	Must hold after an operation
+Assumption	Expected to hold in the environment
+
+👉 Invariants are stronger than pre/postconditions.
+
+How invariants are written
+
+They’re usually:
+
+Declarative
+
+State-based
+
+Often mathematical or logical
+
+Example:
+
+∀ r ∈ Resources :
+    allocated(r) ≤ capacity(r)
+
+
+Or in plain language:
+
+At all times, allocated resources shall not exceed capacity.
+
+One-sentence takeaway
+
+An invariant is a requirement that defines a condition the system must satisfy at all times, across all states and operations.
+
+If you want, I can also explain:
+
+Invariants vs constraints
+
+Invariants in UML / OCL
+
+How to derive invariants from informal requirements
+
+How invariants are tested or verified
+
+Just say the word 👍"
